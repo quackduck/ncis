@@ -17,6 +17,7 @@ var (
 
 Usage: ncis <target IP> <user list> <password list>
        ncis [-v/--version | -h/--help]
+
    <target IP>     : the address to ssh into
    <user list>     : path to file with usernames on each line
    <password list> : path to file with passwords on each line`
