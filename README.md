@@ -1,10 +1,7 @@
 # ncis
-No computer is secure, mate. Brute force ssh super fast.
+**N**o **C**omputer **I**s **S**ecure : **NCIS**
 
-
-## Whats This?  
-
-An SSH bruteforcing tool aimed at being _ridiculously_ easy to use.
+Ncis is an SSH bruteforcing tool aimed at being _ridiculously_ easy to use.
 
 ## Usage 
 
