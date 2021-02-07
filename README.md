@@ -1,10 +1,10 @@
-# ncis
-No computer is secure, mate. Brute force ssh super fast.
+# Ncis
+No computer is secure, mate. Brute force ssh easily.
 
 
-## Whats This?  
+## What's This?  
 
-Yet another SSH bruteforcing tool aimed at doing things faster,  so it's only natural we did it in go. 
+Yet another SSH bruteforcing tool aimed at being ridiculously easy to use.
 
 
 ## Usage 
@@ -12,8 +12,6 @@ Yet another SSH bruteforcing tool aimed at doing things faster,  so it's only na
 `ncis <target IP> <user list> <password list>`
 
 
-## :rotating_light: LEGAL DISCLAIMER 
+## Disclaimer
 
-ncis AND ITS CONTRIBUTORS DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE THAT MAY BE CAUSED BY THE USE OF THIS TOOL. THIS TOOL WAS CREATED LARGELY FOR EDUCATIONAL PURPOSES SO USE AT YOUR OWN RISK!!!!
-
-
+The Ncis contributors do not take responsibility for damage caused by the use of this tool. Use at your own risk.
