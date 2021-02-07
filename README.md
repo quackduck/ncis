@@ -4,16 +4,26 @@ No computer is secure, mate. Brute force ssh super fast.
 
 ## Whats This?  
 
-Yet another SSH bruteforcing tool aimed at doing things faster,  so it's only natural we did it in go. 
-
+An SSH bruteforcing tool aimed at being _ridiculously_ easy to use.
 
 ## Usage 
 
 `ncis <target IP> <user list> <password list>`
 
+## Installing
 
-## :rotating_light: LEGAL DISCLAIMER 
+Build `ncis.go` from source or use Homebrew:
+```shell
+brew install quackduck/tap/ncis
+```
 
-ncis AND ITS CONTRIBUTORS DO NOT TAKE ANY RESPONSIBILITY FOR ANY DAMAGE THAT MAY BE CAUSED BY THE USE OF THIS TOOL. THIS TOOL WAS CREATED LARGELY FOR EDUCATIONAL PURPOSES SO USE AT YOUR OWN RISK!!!!
+## Uninstalling
 
+Delete the executable (`rm $(which ncis)`) or use Homebrew:
+```shell
+brew uninstall ncis
+```
 
+## Legal Disclaimer
+
+Ncis contributors do not take responsibility for damage caused by the use of this tool. Use at your own risk.
