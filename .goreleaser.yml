@@ -29,8 +29,6 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
-    files:
-      - shell
 checksum:
   name_template: 'checksums.txt'
 snapshot:
