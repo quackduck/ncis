@@ -11,17 +11,17 @@ import (
 
 var (
 	version = "dev"
-	helpMsg = `Ncis - Brute force ssh super fast
-
+	helpMsg = `Ncis - Brute force ssh easily.
 Usage: ncis <target IP> <user list> <password list>
        ncis [-v/--version | -h/--help]
    <target IP>     : the address to ssh into
    <user list>     : path to file with usernames on each line
-   <password list> : path to file with passwords on each line`
+   <password list> : path to file with passwords on each line
+No Computer Is Secure`
 )
 
 func main() {
-	// TODO: get wordlists from env vars so user does not have to type/remember paths
+	// TODO: get wordlist paths from env vars so user does not have to type/remember paths
 	if len(os.Args) > 4 {
 		handleErrStr("too many arguments (>3)") // will accept ip addr, pass list and user list
 		fmt.Println(helpMsg)
